@@ -1,6 +1,15 @@
+import Footer from "./components/Footer/Footer";
+import React from 'react'
+
 function App(){
   return(
-    <p>React</p>
+    <React.Fragment>
+    <p>Proyecto epico anashe</p>
+
+   <footer>
+    <Footer/>
+   </footer>
+   </React.Fragment>
   );
 }
 

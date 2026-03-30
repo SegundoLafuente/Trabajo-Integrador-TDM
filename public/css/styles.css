@@ -84,6 +84,14 @@ nav {
 .all-movies .single-card-movie {
     width: 15%;
 }
+footer {
+    background-color: #dedede;
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+    bottom: 0;
+    width: 100%;
+}
 
 @media(min-width: 765px){
     nav {
