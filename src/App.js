@@ -1,17 +1,23 @@
 import Footer from "./components/Footer/Footer";
 import React from 'react'
 import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from "./screens/Home/Home";
+import Peliculas from "./screens/Peliculas/Peliculas";
 
 function App(){
   return(
-    <React.Fragment>
+    <>
       <Navbar/>
-    <p>Proyecto epico anashe</p>
+    <Switch>
+        <Route path="/" exact={true} component={Home}/>
+        <Route path="/Peliculas" component={Peliculas}/>
 
-   <footer>
+    </Switch>
+
+   
     <Footer/>
-   </footer>
-   </React.Fragment>
+   </>
   );
 }
 
