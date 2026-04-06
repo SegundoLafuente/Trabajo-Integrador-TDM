@@ -9,7 +9,6 @@ function Home() {
      
       <main>
         <Titulo titulo="Popular movies this week" />
-        <p>Proyecto epico anashe</p>
         <Titulo titulo="Movies now playing" />
         <Titulo titulo="Popular TV shows this week" />
         <Titulo titulo="Tv shows airing today" />
