@@ -2,6 +2,7 @@
 
 import React from "react";
 import Titulo from "../../components/Titulo/Titulo";
+import './styles.css'
 
 
 function Home() {
