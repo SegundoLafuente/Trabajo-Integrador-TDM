@@ -2,13 +2,11 @@
 
 import React from "react";
 import Titulo from "../../components/Titulo/Titulo";
+import './styles.css'
 
 
 function Home() {
   return (
-
-
-    
      
       <main>
         <Titulo titulo="Popular movies this week" />
