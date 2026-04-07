@@ -1,12 +1,13 @@
 import React from "react";
-
+import LoginC from "../../components/LoginHijo/LoginHijo";
+import Titulo from "../../components/Titulo/Titulo";
 
 function Login(props) {
   return (
      
       <main>
-        <h2>Login</h2>
-        
+        <Titulo titulo="Iniciar sesión" />
+        <LoginC />
       </main>
   );
 }

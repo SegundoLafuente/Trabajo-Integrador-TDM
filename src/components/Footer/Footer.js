@@ -2,9 +2,9 @@ import React from "react";
 
 function Footer(){
     return(
-        <footer>
-        <p>| Felipe Ramallo | Maximo Restivo | Segundo Lafuente |</p>
-    </footer>
+        <footer class="alert alert-primary mt-4 text-center">
+            <p class="mb-0">| Felipe Ramallo | Maximo Restivo | Segundo Lafuente |</p>
+        </footer>
     );
 }
 

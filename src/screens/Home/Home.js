@@ -1,4 +1,3 @@
-{/* falta conectar con Card.js cambiar el Home.js, Armar la Key y conectarla*/}
 
 import React from "react";
 import Titulo from "../../components/Titulo/Titulo";

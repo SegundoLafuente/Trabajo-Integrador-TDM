@@ -22,10 +22,9 @@ class App extends Component {
           <Route path="/Series" component={Series} />
           <Route path="/Favoritas" component={Favoritas} />
 
-          <Route path="/registro" component={Registro} />
-          <Route path="/login" component={Login} />
+          <Route path="/Registro" component={Registro} />
+          <Route path="/Login" component={Login} />
 
-          {/* <Route component={NotFound} /> */}
 
       </Switch>
 
