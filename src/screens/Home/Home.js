@@ -6,6 +6,9 @@ import Titulo from "../../components/Titulo/Titulo";
 
 function Home() {
   return (
+
+
+    
      
       <main>
         <Titulo titulo="Popular movies this week" />
