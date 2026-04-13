@@ -13,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <h1>UdeSA Movies</h1>
         <Navbar />
         <Switch>
         

@@ -1,6 +1,6 @@
 import React from "react";
-import LoginC from "../../components/LoginHijo/LoginHijo";
 import Titulo from "../../components/Titulo/Titulo";
+import LoginPadre from "../../components/LoginPadre/LoginPadre";
 import './styles.css'
 
 
@@ -9,7 +9,7 @@ function Login(props) {
      
       <main>
         <Titulo titulo="Iniciar sesión" />
-        <LoginC />
+        <LoginPadre/>
       </main>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from 'react';
 
-class LoginC extends Component{
+class LoginHijo extends Component{
 
   constructor(props) {
     super(props);
@@ -33,4 +33,4 @@ class LoginC extends Component{
   }
 }
 
-export default LoginC;
+export default LoginHijo;
