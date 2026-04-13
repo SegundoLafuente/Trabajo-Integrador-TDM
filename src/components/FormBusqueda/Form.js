@@ -11,7 +11,7 @@ class Form extends Component {
   evitarSubmit(event) {
     event.preventDefault(); 
     alert(`Buscando: ${this.state.valor}`);
-    this.props.history.push(`/Results/${this.valor}`)
+    this.props.history.push(`/Results/${this.state.valor}`)
   }
 
   controlarCambios(event) {
@@ -28,7 +28,7 @@ class Form extends Component {
         <label>Buscar: </label>
         
         <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
-        <input type="submit" value="Submit" />
+        <button type="submit"> Buscar</button>
       </form>
     );
   }

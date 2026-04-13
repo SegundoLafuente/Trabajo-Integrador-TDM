@@ -26,7 +26,7 @@ function App(){
           <Route path="/Registro" component={Registro} />
           <Route path="/Login" component={Login} />
 
-          <Route path="/Results/${this.valor}" component={Results}/>
+          <Route path="/Results/:valor" component={Results}/>
 
 
       </Switch>
