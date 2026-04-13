@@ -8,6 +8,7 @@ import Series from './screens/Series/Series';
 import Favoritas from './screens/Favoritas/Favoritas';
 import Registro from './screens/Registro/Registro';
 import Login from './screens/Login/Login';
+import Results from './screens/Results/Results';
 
 class App extends Component {
   render() {
@@ -18,13 +19,15 @@ class App extends Component {
         <Switch>
         
           <Route path="/" exact={true} component={Home} />
-          <Route path="/dSerie" component ={Serie}
+          <Route path="/dSerie" component ={Serie} />
           <Route path="/Peliculas" component={Peliculas} />
           <Route path="/Series" component={Series} />
           <Route path="/Favoritas" component={Favoritas} />
 
           <Route path="/Registro" component={Registro} />
           <Route path="/Login" component={Login} />
+
+          <Route path="/Results/${this.valor}" component={Results}/>
 
 
       </Switch>
