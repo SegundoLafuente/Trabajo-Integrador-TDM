@@ -18,16 +18,16 @@ class LoginHijo extends Component{
 
   render() {
     return (
-      <form>
+      <form onSubmit={(event)=>this.evitarSubmit(event)}>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ingresá tu email"/>
+                        <input type="email" class="form-control" id="email" placeholder="Ingresá tu email" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor}/>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" placeholder="Ingresá tu contraseña"/>
+                        <input type="password" class="form-control" id="password" placeholder="Ingresá tu contraseña" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor}/>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                    <Link to='/Home'><button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button></Link>
                 </form>
     );
   }
