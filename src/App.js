@@ -9,9 +9,8 @@ import Favoritas from './screens/Favoritas/Favoritas';
 import Registro from './screens/Registro/Registro';
 import Login from './screens/Login/Login';
 import Results from './screens/Results/Results';
-
-class App extends Component {
-  render() {
+import Serie from './screens/Serie/Serie';
+function App(){
     return (
       <React.Fragment>
         <h1>UdeSA Movies</h1>
@@ -19,7 +18,7 @@ class App extends Component {
         <Switch>
         
           <Route path="/" exact={true} component={Home} />
-          <Route path="/dSerie" component ={Serie} />
+          <Route path="/dSerie:id" component ={Serie} />
           <Route path="/Peliculas" component={Peliculas} />
           <Route path="/Series" component={Series} />
           <Route path="/Favoritas" component={Favoritas} />
@@ -34,8 +33,7 @@ class App extends Component {
 
       <Footer />
     </React.Fragment>
-    );
-  }
+    )
 }
 
 export default App;
