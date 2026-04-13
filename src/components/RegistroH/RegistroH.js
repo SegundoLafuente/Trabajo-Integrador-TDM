@@ -1,34 +1,45 @@
 import React from "react";
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-class LoginHijo extends Component{
+
+class RegistroH extends Component{
 
   constructor(props) {
     super(props);
     this.state = {mail: '',
-      contra: ''
+        contra: '',
+        mensajeError: ''
     };
   }
 
   evitarSubmit(event) {
     event.preventDefault();
-    
+    let Usuarios = localStorage.getItem(Usuarios)
+    let filtro = this.Usuarios.filter((usuario) => usuario[0]===this.mail & usuario[1]===this.contra)
+    if ( filtro.length!==0  || this.contra.length<6) {
+      this.setState({mensajeError: 'El email ya se encuentra registrado o la contraseña es demasiado corta (mínimo 6 caracteres).'})
+    } else {
+      this.usuario = [this.mail, this.contra]
+      localStorage.setItem(Usuarios, this.usuario)
+      this.setState({mensajeError: ''})
+    }
+  
   }
 
   controlarCambiosMail(event) {
-    this.setState({mail: event.target.value
+    this.setState({
+        mail: event.target.value
     });
   }
-    controlarCambiosContra(event) {
+  controlarCambiosContra(event) {
     this.setState({
-      contra: event.target.value
+        contra: event.target.value
     });
   }
 
   render() {
     return (
-      <form onSubmit={(event)=>this.evitarSubmit(event)}>
+            <form onSubmit={(event)=>this.evitarSubmit(event)}>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Ingresá tu email" onChange={(event)=>this.controlarCambiosMail(event)} value={this.state.mail}/>
@@ -37,10 +48,11 @@ class LoginHijo extends Component{
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" placeholder="Ingresá tu contraseña" onChange={(event)=>this.controlarCambiosContra(event)} value={this.state.contra}/>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                    <p>`${this.mensajeError}`</p>
+                      <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                 </form>
     );
   }
 }
 
-export default LoginHijo;
+export default RegistroH;
