@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 class RegistroH extends Component{
@@ -35,6 +36,8 @@ class RegistroH extends Component{
         
         localStorage.setItem('Usuarios', JSON.stringify(arrayUsuarios));// mando el array al local storage
         this.setState({ mensajeError: '' });
+
+        this.props.history.push('/Login');
     }
     
   }
@@ -68,4 +71,4 @@ class RegistroH extends Component{
   }
 }
 
-export default RegistroH;
+export default withRouter(RegistroH)
