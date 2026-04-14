@@ -1,14 +1,15 @@
 import React from "react";
 import './styles.css'
-import RegistroH from "../../components/RegistroH/RegistroH";
+import RegistroP from "../../components/RegistroP/RegistroP";
+import Titulo from "../../components/Titulo/Titulo";
 
 
 function Registro(props) {
   return (
      
       <main>
-        <h2>Registro</h2>
-        <RegistroH/>
+        <Titulo titulo='Registro'/>
+        <RegistroP/>
       </main>
   );
 }

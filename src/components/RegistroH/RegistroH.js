@@ -14,20 +14,29 @@ class RegistroH extends Component{
 
   evitarSubmit(event) {
     event.preventDefault();
-    let UsuariosStorage = localStorage.getItem('Usuarios');
-    let arrayUsuarios = UsuariosStorage ? JSON.parse(UsuariosStorage) : [];
-    let filtro = arrayUsuarios!==0 ? this.arrayUsuarios.filter((usuario) => usuario[0]===this.mail & usuario[1]===this.contra) : [];
+    let usuariosStorage = localStorage.getItem('Usuarios'); // agarro los usuarios del local storage
+    let arrayUsuarios = usuariosStorage ? JSON.parse(usuariosStorage) : [];// creo una variable con lo que traje del local storage, si hay algo se cambia de formato y si no hay nada queda un array vacia.
     
-      if ( filtro.length!==0  || this.contra.length<6) {
-      this.setState({mensajeError: 'El email ya se encuentra registrado o la contraseña es demasiado corta (mínimo 6 caracteres).'})
+    let mail = this.state.mail;
+    let contra = this.state.contra;
+
+    if (!mail || !contra) {//las dos lineas es or
+        this.setState({ mensajeError: 'Todos los campos son obligatorios' }); // si mail o contra estan vacios se activa esto
+        return;
+    }
+
+    let filtro = arrayUsuarios.filter(usuario => usuario[0] === mail); // filtro el array con los usuarios de local storage para ver si existe alguno igual al que se acaba de ingresar
+
+    if (filtro.length !== 0 || contra.length < 6) { //si la contra no tiene 6 caracteres o hay algo en filtro(quiere decir que hay un usuario igual al recien ingresado) se pone el mensaje de error
+        this.setState({ mensajeError: 'El email ya se encuentra registrado o la contraseña es muy corta (mínimo 6 caracteres).' });
     } else {
-      this.usuario = [this.mail, this.contra]
-      localStorage.setItem('Usuarios', this.usuario)
-      this.setState({mensajeError: ''})
+        let nuevoUsuario = [mail, contra];// creo el nuevo usuario
+        arrayUsuarios.push(nuevoUsuario); // lo pusheo al array con los demas usuarios
+        
+        localStorage.setItem('Usuarios', JSON.stringify(arrayUsuarios));// mando el array al local storage
+        this.setState({ mensajeError: '' });
     }
     
-    
-  
   }
 
   controlarCambiosMail(event) {
@@ -52,7 +61,7 @@ class RegistroH extends Component{
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" placeholder="Ingresá tu contraseña" onChange={(event)=>this.controlarCambiosContra(event)} value={this.state.contra}/>
                     </div>
-                    <p>`${this.mensajeError}`</p>
+                    <p>{this.state.mensajeError}</p>
                       <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                 </form>
     );
