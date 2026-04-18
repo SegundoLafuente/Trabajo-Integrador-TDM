@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 
-class PopularSerie extends Component{
+class Serie extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -36,7 +36,7 @@ class PopularSerie extends Component{
                 <p className={this.state.clase}>{this.props.serie.overview}</p>
                 <div className="boton">
                     <button onClick={()=>this.verMas()}>{this.state.detalle}</button>
-                    <Link to={`/dSerie/${this.props.serie.id}`}>Ir a detalle</Link>
+                    <Link to={`/Serie/${this.props.serie.id}`}>Ir a detalle</Link>
                     <button>Favoritos</button>
                 </div>
             </article>
@@ -44,4 +44,4 @@ class PopularSerie extends Component{
     }
 }
 
-export default PopularSerie;
+export default Serie;

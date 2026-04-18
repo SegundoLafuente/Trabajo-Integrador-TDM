@@ -1,0 +1,17 @@
+.single-card-movie {
+    width: 24%;
+    margin-bottom: 15px;
+}
+.cardBody {
+    margin-top: 20px;
+}
+.oculto{
+    display: none;
+}
+.mostrar{
+    display: block;
+}
+.btn{
+    margin-right: 10px;
+    margin-bottom: 5px;
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -10,6 +10,8 @@ import Registro from './screens/Registro/Registro';
 import Login from './screens/Login/Login';
 import Results from './screens/Results/Results';
 import Serie from './screens/Serie/Serie';
+import popular from './screens/popular/popular';
+import upcoming from './screens/upcoming/upcoming';
 function App(){
     return (
       <React.Fragment>
@@ -22,6 +24,9 @@ function App(){
           <Route path="/Peliculas" component={Peliculas} />
           <Route path="/Series" component={Series} />
           <Route path="/Favoritas" component={Favoritas} />
+
+          <Route path="/popular" component={popular} />
+          <Route path="/upcoming" component={upcoming} />
 
           <Route path="/Registro" component={Registro} />
           <Route path="/Login" component={Login} />
