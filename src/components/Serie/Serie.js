@@ -36,7 +36,7 @@ class Serie extends Component{
                 <p className={this.state.clase}>{this.props.serie.overview}</p>
                 <div className="boton">
                     <button onClick={()=>this.verMas()}>{this.state.detalle}</button>
-                    <Link to={`/Serie/${this.props.serie.id}`}>Ir a detalle</Link>
+                    <Link to={`/dSerie/${this.props.serie.id}`}>Ir a detalle</Link>
                     <button>Favoritos</button>
                 </div>
             </article>

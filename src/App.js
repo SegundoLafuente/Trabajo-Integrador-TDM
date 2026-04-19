@@ -9,10 +9,10 @@ import Favoritas from './screens/Favoritas/Favoritas';
 import Registro from './screens/Registro/Registro';
 import Login from './screens/Login/Login';
 import Results from './screens/Results/Results';
-import Serie from './screens/dSerie/dSerie';
 import popular from './screens/popular/popular';
 import upcoming from './screens/upcoming/upcoming';
 import dSerie from './screens/dSerie/dSerie';
+
 function App(){
     return (
       <React.Fragment>
@@ -21,7 +21,7 @@ function App(){
         <Switch>
         
           <Route path="/" exact={true} component={Home} />
-          <Route path="/dSerie:id" component ={dSerie} />
+          <Route path="/dSerie/:id" component ={dSerie} />
           <Route path="/Peliculas" component={Peliculas} />
           <Route path="/Series" component={Series} />
           <Route path="/Favoritas" component={Favoritas} />
