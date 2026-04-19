@@ -12,6 +12,7 @@ import Results from './screens/Results/Results';
 import popular from './screens/popular/popular';
 import upcoming from './screens/upcoming/upcoming';
 import dSerie from './screens/dSerie/dSerie';
+import dPelicula from './screens/dPelicula/dPelicula';
 
 function App(){
     return (
@@ -22,6 +23,7 @@ function App(){
         
           <Route path="/" exact={true} component={Home} />
           <Route path="/dSerie/:id" component ={dSerie} />
+          <Route path="/dPelicula/:id" component={dPelicula}/>
           <Route path="/Peliculas" component={Peliculas} />
           <Route path="/Series" component={Series} />
           <Route path="/Favoritas" component={Favoritas} />

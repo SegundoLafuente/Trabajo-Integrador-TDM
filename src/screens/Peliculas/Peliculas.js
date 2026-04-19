@@ -1,15 +1,12 @@
 import React from "react";
 import './styles.css'
+import PeliculasSection from "../../components/PeliculasSection/PeliculasSection";
 
 
 function Peliculas(props) {
   return (
-     
-      <main>
-        <h2>Todas las peliculas</h2>
-        
-      </main>
-  );
+     <PeliculasSection/>
+  )
 }
 
 export default Peliculas;
