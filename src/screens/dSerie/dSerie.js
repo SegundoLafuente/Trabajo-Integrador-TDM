@@ -1,7 +1,7 @@
 import './styles.css'
 import React, {Component} from "react";
 
-class Serie extends Component{
+class dSerie extends Component{
 
     constructor(props){
         super(props)
@@ -48,4 +48,4 @@ class Serie extends Component{
     )
     }
 }
-export default Serie
+export default dSerie

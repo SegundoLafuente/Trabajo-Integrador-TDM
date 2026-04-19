@@ -10,3 +10,9 @@ body{
     flex-direction: column;
     width: 75%;
 }
+.mostrar{
+    display: block;
+}
+.hide{
+    display: none;
+}
