@@ -39,7 +39,7 @@ class Form extends Component {
 
   filtrarCosas(textoAFiltrar){
     this.setState({
-      datosFiltrados: this.state.datosIniciales.filter((cosa) => cosa.name.toLowerCase().includes(textoAFiltrar.toLowerCase()))
+      datosFiltrados: this.state.datosIniciales.filter((cosa) => cosa.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
     })
   }
 
