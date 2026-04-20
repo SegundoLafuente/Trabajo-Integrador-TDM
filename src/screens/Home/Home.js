@@ -17,7 +17,7 @@ function Home() {
         <Titulo titulo="Upcoming" />
         <SeccionCard categoria='upcoming' cantidad='4'/>
       </main>
-      </body>
+      </>
   );
 }
 
