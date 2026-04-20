@@ -9,7 +9,21 @@ class Serie extends Component{
             descripcion: "mostrar",
             clase: "oculto",
             detalle: "Ver más",
-            favorito: "no"
+            favorito: "❤️"
+        }
+    }
+    componentDidMount(){
+        let storage = localStorage.getItem('favorito')
+        if (storage !== null){
+            let favoritos = JSON.parse(storage)
+            let pelicula = this.props.serie
+            let filtro = favoritos.filter(peli => pelicula.id === peli.id)
+
+            if (filtro.length > 0){
+                this.setState({
+                    favorito: 'Eliminar favorito'
+                })
+            }
         }
     }
 
@@ -45,7 +59,27 @@ class Serie extends Component{
         if(filtro.length === 0){
             favoritos.push(pelicula);
             localStorage.setItem("favorito", JSON.stringify(favoritos));
-            
+            this.setState({
+                    favorito: 'Eliminar favorito'
+                })
+        }
+    }
+
+    eliminarfavoritos(){
+            if (this.state.favorito === 'Eliminar favorito'){
+            let favoritos = []
+            let storage = localStorage.getItem('favorito')
+
+            if(storage !== null){
+                favoritos = JSON.parse(storage)
+            }
+            let pelicula = this.props.serie
+
+            let nuevofav = favoritos.filter(peli => pelicula.id !== peli.id)
+            localStorage.setItem('favorito', JSON.stringify(nuevofav))
+            this.setState({
+                favorito: '❤️'
+            })
         }
     }
 
@@ -58,7 +92,7 @@ class Serie extends Component{
                 <div className="boton">
                     <button className="btn btn-primary" onClick={()=>this.verMas()}>{this.state.detalle}</button>
                     <Link to={`/Serie/${this.props.serie.id}`}>Ir a detalle</Link>
-                    <button onClick={()=>this.favoritos()} className ="btn alert-primary">Favoritos</button>
+                    <button onClick={this.state.favorito === '❤️' ? () => this.favoritos() : () => this.eliminarfavoritos()} className ="btn alert-primary">{this.state.favorito}</button>
                 </div>
             </article>
         )

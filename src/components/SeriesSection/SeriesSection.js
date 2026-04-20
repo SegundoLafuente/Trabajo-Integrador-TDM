@@ -13,7 +13,7 @@ class SerieSection extends Component{
     }
 
     componentDidMount(){
-        fetch("https://api.themoviedb.org/3/tv/popular?api_key=1a700a291cf896745821e2c04ca0ecaa")
+        fetch("https://api.themoviedb.org/3/tv/popular?api_key=6aad86ecf8fd94ac9b44f0afc185ea99")
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -45,7 +45,7 @@ class SerieSection extends Component{
         return(
             <>
                 <section class="row cards" id="movies">
-                    {this.state.series == [] ? <h1>Cargando...</h1>: this.state.series.map((serie, idx) => <Serie key = {(serie + idx)} serie={serie}/>)}
+                    {this.state.series === [] ? <h1>Cargando...</h1>: this.state.series.map((serie, idx) => <Serie key = {(serie + idx)} serie={serie}/>)}
                     <button className = "boton-cargar.mas" onClick={()=>this.cargarMas()}>Cargar más</button>
                 </section>
             </>
