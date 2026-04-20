@@ -1,5 +1,7 @@
 import { Component } from "react";
 import Card from "../../components/Card/Card";
+import Navbar from "../../components/Navbar/Navbar";
+
 
 
 class Results extends Component {
@@ -22,13 +24,14 @@ componentDidMount(){
 
   render(){
     return (
+      <><Navbar />
       <section>
       <h1>Resultados</h1>
       {this.state.datos.length === 0 ? 
         <h3>Cargando...</h3> : 
         this.state.datos.map((pj,idx) => <Card key ={pj.name+idx} data = {pj}/>)
       }
-      </section>
+      </section></>
     );
   }
 }

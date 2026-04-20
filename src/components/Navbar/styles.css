@@ -15,6 +15,12 @@ nav {
 .nav a:hover{
     font-weight: bold;
 }
+.oculto{
+    display: none;
+}
+.mostrar{
+    display: block;
+}
 
 
 @media(min-width: 765px){

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import './styles.css'
+import './styles.css';
+import Cookies from 'universal-cookie'
+const cookies = new Cookies()
 
-function Navbar(){
-    return(
+class Navbar extends Component{
+     
+    
+   
+    render(){
+        return(
         <nav>
     <ul class="nav nav-tabs my-4">
                 <li class="nav-item">
@@ -15,18 +21,20 @@ function Navbar(){
                 <li class="nav-item">
                     <Link className="nav-link" to="/Series">Series</Link>
                 </li>
-                <li class="nav-item">
+                <li class='nav-item'>
                     <Link className="nav-link" to="/Favoritas">Favoritas</Link>
                 </li>
-                <li class="nav-item ml-auto">
+                <li class='nav-item ml-auto'>
                     <Link className="nav-link" to="/Registro">Registro</Link>
                 </li>
-                <li class="nav-item">
+                <li class='nav-item' >
                     <Link className="nav-link" to="/Login">Login</Link>
                 </li>
+                
             </ul>
         </nav>
-    );
+    );}
+    
 }
 
 export default Navbar;

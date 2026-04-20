@@ -1,5 +1,7 @@
 import './styles.css'
 import React, {Component} from "react";
+import Navbar from "../../components/Navbar/Navbar";
+
 
 class dSerie extends Component{
 
@@ -31,8 +33,9 @@ class dSerie extends Component{
     render(){
     return(
         <>
-        {this.state.serie == [] ? <h1>Cargando...</h1>:<article>
-            <img src= {`https://image.tmdb.org/t/p/w342/${this.state.serie.poster_path}`}/>
+        <Navbar />
+        {this.state.serie === [] ? <h1>Cargando...</h1>:<article>
+            <img src= {`https://image.tmdb.org/t/p/w342/${this.state.serie.poster_path}`} alt='a'/>
             <h2>{this.state.serie.original_title}</h2>
             <p>Rating: {this.state.serie.vote_average}</p>
             <p>Fecha de estreno: {this.state.serie.release_date}</p>

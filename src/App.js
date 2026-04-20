@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from "./components/Navbar/Navbar";
+
 import Footer from "./components/Footer/Footer";
 import Home from "./screens/Home/Home";
 import Peliculas from './screens/Peliculas/Peliculas';
@@ -18,7 +18,6 @@ function App(){
     return (
       <React.Fragment>
         <h1>UdeSA Movies</h1>
-        <Navbar />
         <Switch>
         
           <Route path="/" exact={true} component={Home} />
