@@ -9,11 +9,12 @@ class Serie extends Component{
             descripcion: "mostrar",
             clase: "oculto",
             detalle: "Ver más",
+            favorito: "no"
         }
     }
 
     verMas(){
-        if(this.state.descripcion == "mostrar"){
+        if(this.state.descripcion === "mostrar"){
             this.setState({
                 descripcion: "ocultar",
                 clase: "mostrar",
@@ -29,6 +30,25 @@ class Serie extends Component{
         }
     }
 
+    favoritos(){
+        let favoritos = []
+        let storage = localStorage.getItem('favorito')
+
+        if(storage !== null){
+            favoritos = JSON.parse(storage)
+        }
+
+        let pelicula = this.props.serie
+
+        let filtro = favoritos.filter(peli => pelicula.id === peli.id)
+
+        if(filtro.length === 0){
+            favoritos.push(pelicula);
+            localStorage.setItem("favorito", JSON.stringify(favoritos));
+            
+        }
+    }
+
     render(){
         return(
             <article className='single-card-movie'>
@@ -38,7 +58,7 @@ class Serie extends Component{
                 <div className="boton">
                     <button className="btn btn-primary" onClick={()=>this.verMas()}>{this.state.detalle}</button>
                     <Link to={`/Serie/${this.props.serie.id}`}>Ir a detalle</Link>
-                    <button className ="btn alert-primary">Favoritos</button>
+                    <button onClick={()=>this.favoritos()} className ="btn alert-primary">Favoritos</button>
                 </div>
             </article>
         )

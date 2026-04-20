@@ -9,7 +9,7 @@ class Card extends Component{
             descripcion: "mostrar",
             clase: "oculto",
             detalle: "Ver más",
-
+            favorito: "no"
         }
     }
     
@@ -32,6 +32,25 @@ class Card extends Component{
         }
     }
 
+    favoritos(){
+        let favoritos = []
+        let storage = localStorage.getItem('favorito')
+
+        if(storage !== null){
+            favoritos = JSON.parse(storage)
+        }
+
+        let pelicula = this.props.movie
+
+        let filtro = favoritos.filter(peli => pelicula.id === peli.id)
+
+        if(filtro.length === 0){
+            favoritos.push(pelicula);
+            localStorage.setItem("favorito", JSON.stringify(favoritos));
+            
+        }
+    }
+
     render(){
         return(
             <article className="single-card-movie">
@@ -42,7 +61,7 @@ class Card extends Component{
                     <p className={this.state.clase}>{this.props.movie.overview}</p>
                     <button className="btn btn-primary" onClick={()=>this.verMas()}>{this.state.detalle}</button>
                     <Link className="btn btn-primary" to={`/dPelicula/${this.props.movie.id}`}>Ir a detalle</Link>
-                    <button className="btn alert-primary" >❤️</button>
+                    <button onClick={()=>this.favoritos()} className="btn alert-primary">❤️</button>
                 </div>
             </article>
         )
