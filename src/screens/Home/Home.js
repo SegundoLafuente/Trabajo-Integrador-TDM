@@ -8,15 +8,14 @@ import SeccionCard from "../../components/SeccionCard/SeccionCard";
 
 function Home() {
   return (
-     <body>
-      <FormularioBusqueda/>
+     <><FormularioBusqueda/>
       <main>
         <Titulo titulo="Popular movies this week" />
         <SeccionCard categoria='popular' cantidad='4'/>
         <Titulo titulo="Upcoming" />
         <SeccionCard categoria='upcoming' cantidad='4'/>
       </main>
-      </body>
+      </> 
   );
 }
 

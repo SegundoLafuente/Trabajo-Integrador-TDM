@@ -26,7 +26,7 @@ class SeccionCard extends Component{
     render(){
         
         return(
-            <section class="row cards" id="movies">
+            <section className="row cards" id="movies">
                 {this.state.peliculas.length === 0 ? (<h3>Cargando peliculas...</h3>) : (this.state.peliculas.slice(0,this.props.cantidad).map((card, index) => <Card key={card.id + index} movie={card} /> ))}
                  <Link className='btn alert-primary' to={`/${this.props.categoria}`} >Ver Mas peliculas</Link>
             </section>
