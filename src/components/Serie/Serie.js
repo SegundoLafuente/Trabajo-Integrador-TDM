@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import './styles.css'
 
 class Serie extends Component{
     constructor(props){
@@ -30,14 +31,14 @@ class Serie extends Component{
 
     render(){
         return(
-            <article className='series'>
-                <img src= {`https://image.tmdb.org/t/p/w342/${this.props.serie.poster_path}`}/>
-                <h2>{this.props.serie.name}</h2>
+            <article className='single-card-movie'>
+                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${this.props.serie.poster_path}`}/>
+                <h2 className ="card-title">{this.props.serie.name}</h2>
                 <p className={this.state.clase}>{this.props.serie.overview}</p>
                 <div className="boton">
-                    <button onClick={()=>this.verMas()}>{this.state.detalle}</button>
-                    <Link to={`/dSerie/${this.props.serie.id}`}>Ir a detalle</Link>
-                    <button>Favoritos</button>
+                    <button className="btn btn-primary" onClick={()=>this.verMas()}>{this.state.detalle}</button>
+                    <Link to={`/Serie/${this.props.serie.id}`}>Ir a detalle</Link>
+                    <button className ="btn alert-primary">Favoritos</button>
                 </div>
             </article>
         )

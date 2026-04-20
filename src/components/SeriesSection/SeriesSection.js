@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Serie from "../Serie/Serie";
+import './styles.css'
 
 
 class SerieSection extends Component{
@@ -43,9 +44,9 @@ class SerieSection extends Component{
     render(){
         return(
             <>
-                <section>
-                    <button onClick={()=>this.cargarMas()}>Cargar más</button>
+                <section className = "cards">
                     {this.state.series == [] ? <h1>Cargando...</h1>: this.state.series.map((serie, idx) => <Serie key = {(serie + idx)} serie={serie}/>)}
+                    <button className = "boton-cargar.mas" onClick={()=>this.cargarMas()}>Cargar más</button>
                 </section>
             </>
         )
