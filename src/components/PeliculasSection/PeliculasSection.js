@@ -45,7 +45,7 @@ class PeliculasSection extends Component{
             <>
                 <section>
                     <button onClick={()=>this.cargarMas()}>Cargar más</button>
-                    {this.state.peliculas == [] ? <h1>Cargando...</h1>: this.state.peliculas.map((pelicula, idx) => <Pelicula key = {(pelicula + idx)} pelicula={pelicula}/>)}
+                    {this.state.peliculas === [] ? <h1>Cargando...</h1>: this.state.peliculas.map((pelicula, index) => <Pelicula key = {(pelicula + index)} pelicula={pelicula}/>)}
                 </section>
             </>
         )

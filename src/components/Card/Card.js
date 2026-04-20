@@ -41,7 +41,7 @@ class Card extends Component{
                     <h5 className="card-title">{this.props.movie.title}</h5>
                     <p className={this.state.clase}>{this.props.movie.overview}</p>
                     <button className="btn btn-primary" onClick={()=>this.verMas()}>{this.state.detalle}</button>
-                    <Link className="btn btn-primary" to={`/Pelicula/${this.props.movie.id}`}>Ir a detalle</Link>
+                    <Link className="btn btn-primary" to={`/dPelicula/${this.props.pelicula.id}`}>Ir a detalle</Link>
                     <button className="btn alert-primary" >❤️</button>
                 </div>
             </article>
