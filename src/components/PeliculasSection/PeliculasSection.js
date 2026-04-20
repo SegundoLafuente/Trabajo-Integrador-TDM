@@ -43,7 +43,7 @@ class PeliculasSection extends Component{
     render(){
         return(
             <>
-                <section className = "cards">
+                <section class="row cards">
                     {this.state.peliculas == [] ? <h1>Cargando...</h1>: this.state.peliculas.map((pelicula, idx) => <Pelicula key = {(pelicula + idx)} pelicula={pelicula}/>)}
                     <button className = "boton-cargar.mas" onClick={()=>this.cargarMas()}>Cargar más</button>
                 </section>

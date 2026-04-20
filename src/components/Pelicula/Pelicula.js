@@ -31,14 +31,14 @@ class Pelicula extends Component{
 
     render(){
         return(
-            <article className='popular'>
-                <img src= {`https://image.tmdb.org/t/p/w342/${this.props.pelicula.poster_path}`}/>
-                <h2>{this.props.pelicula.title}</h2>
+            <article className='single-card-movie'>
+                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${this.props.pelicula.poster_path}`}/>
+                <h2 className ="card-title">{this.props.pelicula.title}</h2>
                 <p className={this.state.clase}>{this.props.pelicula.overview}</p>
-                <div className="botones-home">
-                    <button onClick={()=>this.verDescripcion()}>{this.state.detalle}</button>
+                <div className="boton">
+                    <button className="btn btn-primary" onClick={()=>this.verDescripcion()}>{this.state.detalle}</button>
                     <Link to={`/dPelicula/${this.props.pelicula.id}`}>Ir a detalle</Link>
-                    <button>Favoritos</button>
+                    <button className ="btn alert-primary">Favoritos</button>
                 </div>
             </article>
         )
