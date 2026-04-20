@@ -84,7 +84,7 @@ class Pelicula extends Component{
     render(){
         return(
             <article className='single-card-movie'>
-                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${this.props.pelicula.poster_path}`}/>
+                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${this.props.pelicula.poster_path}`} alt='a'/>
                 <h2 className ="card-title">{this.props.pelicula.title}</h2>
                 <p className={this.state.clase}>{this.props.pelicula.overview}</p>
                 <div className="boton">

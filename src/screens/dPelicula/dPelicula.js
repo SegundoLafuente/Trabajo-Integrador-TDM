@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Navbar from "../../components/Navbar/Navbar";
+
 
 class dPelicula extends Component{
 
@@ -30,8 +32,9 @@ class dPelicula extends Component{
     render(){
     return(
         <>
-        {this.state.pelicula == [] ? <h1>Cargando...</h1>:<article>
-            <img src= {`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}`}/>
+        <Navbar />
+        {this.state.pelicula === [] ? <h1>Cargando...</h1>:<article>
+            <img src= {`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}`} alt='a'/>
             <h2>{this.state.pelicula.original_title}</h2>
             <p>Rating: {this.state.pelicula.vote_average}</p>
             <p>Fecha de estreno: {this.state.pelicula.release_date}</p>

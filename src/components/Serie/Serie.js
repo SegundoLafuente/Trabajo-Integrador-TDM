@@ -86,7 +86,7 @@ class Serie extends Component{
     render(){
         return(
             <article className='single-card-movie'>
-                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${this.props.serie.poster_path}`}/>
+                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${this.props.serie.poster_path}`} alt='a'/>
                 <h2 className ="card-title">{this.props.serie.name}</h2>
                 <p className={this.state.clase}>{this.props.serie.overview}</p>
                 <div className="boton">
