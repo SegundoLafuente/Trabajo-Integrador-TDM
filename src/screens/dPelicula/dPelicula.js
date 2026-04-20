@@ -12,7 +12,7 @@ class dPelicula extends Component{
     }
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=1a700a291cf896745821e2c04ca0ecaa`)
+        fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=6aad86ecf8fd94ac9b44f0afc185ea99`)
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data)
