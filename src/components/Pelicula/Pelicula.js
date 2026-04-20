@@ -13,7 +13,7 @@ class Pelicula extends Component{
     }
 
     verDescripcion(){
-        if(this.state.descripcion == "mostrar"){
+        if(this.state.descripcion === "mostrar"){
             this.setState({
                 descripcion: "no mostrar",
                 clase: "mostrar",
