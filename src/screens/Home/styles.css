@@ -1,0 +1,14 @@
+.home-main-container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 40px 20px; 
+  display: flex;
+  flex-direction: column;
+  gap: 30px; 
+}
+@media (max-width: 768px) {
+  .home-main-container {
+    padding: 20px 15px; 
+    gap: 20px; 
+  }
+}

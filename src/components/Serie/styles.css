@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+    .single-card-movie{
+        max-width: 50%;
+    }
+    .card-title{
+        font-size: 20px;
+    }
+    .boton{
+        max-width: 70%
+    }
+}
+@media (max-width: 480px) {
+    .card-title{
+        font-size: 12px;
+    }
+  }

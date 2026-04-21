@@ -13,7 +13,7 @@ function Home() {
      <>
      <Navbar/>
      <FormularioBusqueda/>
-      <main>
+      <main className = "home-main-container">
         <Titulo titulo="Popular movies this week" />
         <SeccionCard categoria='popular' cantidad='4'/>
         <Titulo titulo="Upcoming" />

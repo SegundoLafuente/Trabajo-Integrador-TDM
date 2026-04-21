@@ -10,7 +10,7 @@ function Login(props) {
   return (
      <>
      <Navbar />
-     <main>
+     <main className = "login-main-container">
         <Titulo titulo="Iniciar sesión" />
         <LoginPadre/>
       </main>
