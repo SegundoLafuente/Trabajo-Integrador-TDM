@@ -10,7 +10,9 @@ import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   return (
-     <><FormularioBusqueda/>
+     <>
+     <Navbar/>
+     <FormularioBusqueda/>
       <main>
         <Titulo titulo="Popular movies this week" />
         <SeccionCard categoria='popular' cantidad='4'/>
