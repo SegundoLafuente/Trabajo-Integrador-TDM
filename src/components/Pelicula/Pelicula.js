@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 
 
-function Pelicula (props){
+function Pelicula(props){
     
         const [descripcion,setDescripcion] = useState('mostrar')
         const [clase,setClase] = useState('hide')
@@ -15,13 +15,12 @@ function Pelicula (props){
             let storage = localStorage.getItem('favorito')
         if (storage !== null){
             let favoritos = JSON.parse(storage)
-            let pelicula = this.props.pelicula
+            let pelicula = props.pelicula
             let filtro = favoritos.filter(peli => pelicula.id === peli.id)
 
             if (filtro.length > 0){
-                this.setState({
-                    favorito: 'Eliminar favorito'
-                })
+
+                setFavorito('Eliminar favorito')
             }
         }
         },[]

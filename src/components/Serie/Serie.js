@@ -23,7 +23,7 @@ function Serie(props){
                 
             }
         }
-        }
+        }, []
     )
         
     function verMas(){

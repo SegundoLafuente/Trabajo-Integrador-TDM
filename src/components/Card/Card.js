@@ -1,51 +1,46 @@
-import React, {Component} from "react";
+import React, {useState,useEffect} from "react";
 import { Link } from 'react-router-dom';
 import './styles.css'
 
-class Card extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            descripcion: "mostrar",
-            clase: "oculto",
-            detalle: "Ver más",
-            favorito: "❤️"
-        }
-    }
+function Card(props){
+
+       const [descripcion,setDescripcion] = useState('mostrar')
+       const [clase,setClase] = useState('oculto')
+       const [detalle,setDetalle] = useState('Ver más')
+       const [favorito,setFavorito] = useState('❤️')
     
-    componentDidMount(){
-        let storage = localStorage.getItem('favorito')
+    useEffect(
+        () => {
+            let storage = localStorage.getItem('favorito')
         if (storage !== null){
             let favoritos = JSON.parse(storage)
-            let pelicula = this.props.movie
+            let pelicula = props.movie
             let filtro = favoritos.filter(peli => pelicula.id === peli.id)
 
             if (filtro.length > 0){
-                this.setState({
-                    favorito: 'Eliminar favorito'
-                })
+
+                setFavorito('Eliminar favorito')
+
             }
         }
-    }
+        }
+    )
+        
+    function verMas(){
+        if(descripcion === "mostrar"){
+                setDescripcion('ocultar')
+                setClase('mostrar')
+                setDetalle('Ver menos')
 
-    verMas(){
-        if(this.state.descripcion === "mostrar"){
-            this.setState({
-                descripcion: "ocultar",
-                clase: "mostrar",
-                detalle: "Ver menos"
-            })
         }
         else{
-            this.setState({
-                descripcion: "mostrar",
-                clase: "oculto",
-                detalle: "Ver más"
-            })
+                setDescripcion('mostrar')
+                setClase('oculto')
+                setDetalle('Ver más')
         }
     }
 
-    favoritos(){
+    function favoritos(){
         let favoritos = []
         let storage = localStorage.getItem('favorito')
 
@@ -53,51 +48,50 @@ class Card extends Component{
             favoritos = JSON.parse(storage)
         }
 
-        let pelicula = this.props.movie
+        let pelicula = props.movie
 
         let filtro = favoritos.filter(peli => pelicula.id === peli.id)
 
         if(filtro.length === 0){
             favoritos.push(pelicula);
             localStorage.setItem("favorito", JSON.stringify(favoritos));
-            this.setState({
-                    favorito: 'Eliminar favorito'
-                })
+
+            setFavorito('Eliminar favorito')
+
         }
         
     }
-    eliminarfavoritos(){
-            if (this.state.favorito === 'Eliminar favorito'){
+    function eliminarfavoritos(){
+            if (favorito === 'Eliminar favorito'){
             let favoritos = []
             let storage = localStorage.getItem('favorito')
 
             if(storage !== null){
                 favoritos = JSON.parse(storage)
             }
-            let pelicula = this.props.movie
+            let pelicula = props.movie
 
             let nuevofav = favoritos.filter(peli => pelicula.id !== peli.id)
             localStorage.setItem('favorito', JSON.stringify(nuevofav))
-            this.setState({
-                favorito: '❤️'
-            })
+
+            setFavorito('❤️')
         }
     }
-    render(){
+    
         return(
             <article className="single-card-movie">
-                <img src={`https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`} className="card-img-top"
+                <img src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} className="card-img-top"
                     alt="..."/>
                 <div className="cardBody">
-                    <h5 className="card-title">{this.props.movie.title}</h5>
-                    <p className={this.state.clase}>{this.props.movie.overview}</p>
-                    <button className="btn btn-primary" onClick={()=>this.verMas()}>{this.state.detalle}</button>
-                    <Link className="btn btn-primary" to={`/dPelicula/${this.props.movie.id}`}>Ir a detalle</Link>
-                    <button  onClick={this.state.favorito === '❤️' ? () => this.favoritos() : () => this.eliminarfavoritos()} className="btn alert-primary">{this.state.favorito}</button>
+                    <h5 className="card-title">{props.movie.title}</h5>
+                    <p className={clase}>{props.movie.overview}</p>
+                    <button className="btn btn-primary" onClick={()=>verMas()}>{detalle}</button>
+                    <Link className="btn btn-primary" to={`/dPelicula/${props.movie.id}`}>Ir a detalle</Link>
+                    <button  onClick={favorito === '❤️' ? () => favoritos() : () => eliminarfavoritos()} className="btn alert-primary">{favorito}</button>
                 </div>
             </article>
         )
-    }
+    
 }
 
 export default Card;
