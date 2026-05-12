@@ -1,14 +1,11 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import './styles.css';
 import Cookies from 'universal-cookie'
 const cookies = new Cookies()
 
-class Navbar extends Component{
+function Navbar(props){
      
-    
-   
-    render(){
         return(
         <nav>
     <ul className="nav nav-tabs my-4">
@@ -33,7 +30,7 @@ class Navbar extends Component{
                 
             </ul>
         </nav>
-    );}
+    );
     
 }
 
