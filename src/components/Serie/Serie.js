@@ -1,50 +1,45 @@
-import React, {Component} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import './styles.css'
 
-class Serie extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            descripcion: "mostrar",
-            clase: "oculto",
-            detalle: "Ver más",
-            favorito: "❤️"
-        }
-    }
-    componentDidMount(){
-        let storage = localStorage.getItem('favorito')
+function Serie(props){
+
+        const [descripcion,setDescripcion] = useState('mostrar')
+        const [clase,setClase] = useState('oculto')
+        const [detalle,setDetalle] = useState('Ver más')
+        const [favorito,setFavorito] = useState('❤️')
+    
+    useEffect(
+        () => {
+            let storage = localStorage.getItem('favorito')
         if (storage !== null){
             let favoritos = JSON.parse(storage)
-            let pelicula = this.props.serie
+            let pelicula = props.serie
             let filtro = favoritos.filter(peli => pelicula.id === peli.id)
 
             if (filtro.length > 0){
-                this.setState({
-                    favorito: 'Eliminar favorito'
-                })
+                
+                setFavorito('Eliminar favorito')
+                
             }
         }
-    }
-
-    verMas(){
-        if(this.state.descripcion === "mostrar"){
-            this.setState({
-                descripcion: "ocultar",
-                clase: "mostrar",
-                detalle: "Ver menos"
-            })
+        }
+    )
+        
+    function verMas(){
+        if(descripcion === "mostrar"){
+                setDescripcion('ocultar')
+                setClase('mostrar')
+                setDetalle('Ver menos')
         }
         else{
-            this.setState({
-                descripcion: "mostrar",
-                clase: "hide",
-                detalle: "Ver más"
-            })
+                setDescripcion('mostrar')
+                setClase('hide')
+                setDetalle('Ver más')
         }
     }
 
-    favoritos(){
+    function favoritos(){
         let favoritos = []
         let storage = localStorage.getItem('favorito')
 
@@ -52,51 +47,50 @@ class Serie extends Component{
             favoritos = JSON.parse(storage)
         }
 
-        let pelicula = this.props.serie
+        let pelicula = props.serie
 
         let filtro = favoritos.filter(peli => pelicula.id === peli.id)
 
         if(filtro.length === 0){
             favoritos.push(pelicula);
             localStorage.setItem("favorito", JSON.stringify(favoritos));
-            this.setState({
-                    favorito: 'Eliminar favorito'
-                })
+
+            setFavorito('Eliminar favorito')
         }
     }
 
-    eliminarfavoritos(){
-            if (this.state.favorito === 'Eliminar favorito'){
+    function eliminarfavoritos(){
+            if (favorito === 'Eliminar favorito'){
             let favoritos = []
             let storage = localStorage.getItem('favorito')
 
             if(storage !== null){
                 favoritos = JSON.parse(storage)
             }
-            let pelicula = this.props.serie
+            let pelicula = props.serie
 
             let nuevofav = favoritos.filter(peli => pelicula.id !== peli.id)
             localStorage.setItem('favorito', JSON.stringify(nuevofav))
-            this.setState({
-                favorito: '❤️'
-            })
+         
+            setFavorito('❤️')
+
         }
     }
 
-    render(){
+    
         return(
             <article className='single-card-movie'>
-                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${this.props.serie.poster_path}`} alt='a'/>
-                <h2 className ="card-title">{this.props.serie.name}</h2>
-                <p className={this.state.clase}>{this.props.serie.overview}</p>
+                <img className="card-img-top" src= {`https://image.tmdb.org/t/p/w342/${props.serie.poster_path}`} alt='a'/>
+                <h2 className ="card-title">{props.serie.name}</h2>
+                <p className={clase}>{props.serie.overview}</p>
                 <div className="boton">
-                    <button className="btn btn-primary" onClick={()=>this.verMas()}>{this.state.detalle}</button>
-                    <Link to={`/Serie/${this.props.serie.id}`}>Ir a detalle</Link>
-                    <button onClick={this.state.favorito === '❤️' ? () => this.favoritos() : () => this.eliminarfavoritos()} className ="btn alert-primary">{this.state.favorito}</button>
+                    <button className="btn btn-primary" onClick={()=>verMas()}>{detalle}</button>
+                    <Link to={`/Serie/${props.serie.id}`}>Ir a detalle</Link>
+                    <button onClick={favorito === '❤️' ? () => favoritos() : () => eliminarfavoritos()} className ="btn alert-primary">{favorito}</button>
                 </div>
             </article>
         )
-    }
+    
 }
 
 export default Serie;
